@@ -11,7 +11,7 @@ function Book(title, author, pages, read) {
 
 Book.prototype.info = function () {
   const readStatus = this.read ? "read" : "not read";
-  return `${this.title} by ${this.author}, ${this.pages} pages, ${readStatus}`;
+  return `${readStatus}`;
 };
 
 function addBookLibrary(title, author, pages, read) {
@@ -20,16 +20,34 @@ function addBookLibrary(title, author, pages, read) {
 }
 
 addBookLibrary("The Art of Not Giving a Fuck", "Mark Manson", 224, true);
-// addBookLibrary("JavaScript for Sadists", "Linus Devberg", 666, false);
-// addBookLibrary("Eat. Sleep. Code. Repeat.", "Ada Lovelace", 342, true);
+addBookLibrary("JavaScript for Sadists", "Linus Devberg", 666, false);
+addBookLibrary("Eat. Sleep. Code. Repeat.", "Ada Lovelace", 342, true);
+addBookLibrary("Fuck You, I'm Refactoring", "Karen Semicolon", 350, true);
 
 myLibrary.forEach((book) => {
   const myDiv = document.createElement("div");
+
   const bookID = book.id;
   myDiv.setAttribute("data-book-id", bookID);
   booksArea.dataset.bookId;
+
   myDiv.classList.add("book-card");
 
-  //   element.textContent = book.title;
+  const title = document.createElement("h2");
+  title.textContent = book.title;
+  myDiv.appendChild(title);
+
+  const author = document.createElement("p");
+  author.textContent = book.author;
+  myDiv.appendChild(author);
+
+  const pages = document.createElement("p");
+  pages.textContent = `Pages: ${book.pages}`;
+  myDiv.appendChild(pages);
+
+  const status = document.createElement("p");
+  status.textContent = `status: ${book.info()}`;
+  myDiv.appendChild(status);
+
   booksArea.appendChild(myDiv);
 });
