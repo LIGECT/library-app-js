@@ -1,0 +1,29 @@
+@font-face {
+  font-family: DMSerifDisplay;
+  src: url("./assets/fonts/DMSerifDisplay-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: DMSerifDisplay;
+  src: url("./assets/fonts/DMSerifDisplay-Italic.woff2") format("woff2");
+}
+
+h1 {
+  font-family: DMSerifDisplay;
+  font-style: italic;
+  font-size: 48px;
+}
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  height: min-content;
+}
