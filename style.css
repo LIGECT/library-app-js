@@ -1,11 +1,15 @@
 @font-face {
   font-family: DMSerifDisplay;
   src: url("./assets/fonts/DMSerifDisplay-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
 }
 
 @font-face {
   font-family: DMSerifDisplay;
   src: url("./assets/fonts/DMSerifDisplay-Italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400;
 }
 
 :root {
@@ -18,36 +22,158 @@
 h1 {
   font-family: DMSerifDisplay;
   font-style: italic;
-  font-size: 3rem;
+  font-size: 4rem;
   color: var(--header);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  margin-left: 4rem;
+  margin-bottom: 0px;
 }
 
 body {
   background-color: var(--background);
+  color: var(--text);
+}
+
+form {
+  max-width: 270px;
+  font-family: DMSerifDisplay;
+  font-style: normal;
+  font-size: 21px;
+  border: 2px solid var(--header);
+  background-color: #fffefc;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(161, 136, 127, 0.2);
+}
+
+legend {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-style: italic;
 }
 
 .app-content {
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: auto;
+  align-items: center;
+  justify-items: center;
 }
 
 .form-container {
-  width: 300px;
   grid-column: 1/2;
   grid-row: 1/1;
-}
-
-.books-area {
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .add-book-fieldset {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
+  border: none;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid var(--header);
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-family: DMSerifDisplay;
+  font-size: 18px;
+  color: var(--text);
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid var(--header);
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-family: DMSerifDisplay;
+  font-size: 16px;
+  color: var(--text);
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: var(--header);
+  box-shadow: 0 0 0 2px rgba(161, 136, 127, 0.3);
+  transition: all 0.2s ease-in-out;
+}
+
+.form-field-checkbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+}
+
+.form-field-checkbox input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #4e342e;
+  background: #fff8e1;
+  box-shadow: inset 0 0 0 2px #fff;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  cursor: pointer;
+}
+
+.form-field-checkbox input[type="checkbox"]:checked {
+  background: var(--header);
+  box-shadow: inset 0 0 0 2px #fff;
+}
+
+.form-field-checkbox input[type="checkbox"]:checked::after {
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid #4e342e;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0.7;
+}
+
+button {
+  background-color: var(--button);
+  color: var(--text);
+  padding: 10px 18px;
+  border: 2px solid var(--header);
+  border-radius: 8px;
+  font-family: DMSerifDisplay;
+  font-size: 18px;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 4px rgba(78, 52, 46, 0.2);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--header);
+  color: #fffefc;
+  box-shadow: 0 4px 6px rgba(78, 52, 46, 0.25);
+}
+
+button:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+}
+
+.books-area {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .book-card {
