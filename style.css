@@ -8,10 +8,46 @@
   src: url("./assets/fonts/DMSerifDisplay-Italic.woff2") format("woff2");
 }
 
+:root {
+  --background: #fff8e1;
+  --header: #a1887f;
+  --button: #d7ccc8;
+  --text: #4e342e;
+}
+
 h1 {
   font-family: DMSerifDisplay;
   font-style: italic;
-  font-size: 48px;
+  font-size: 3rem;
+  color: var(--header);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+body {
+  background-color: var(--background);
+}
+
+.app-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto;
+}
+
+.form-container {
+  width: 300px;
+  grid-column: 1/2;
+  grid-row: 1/1;
+}
+
+.books-area {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.add-book-fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .book-card {
@@ -24,6 +60,7 @@ h1 {
   margin: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 350px;
-  height: min-content;
+  width: 300px;
+  height: auto;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
