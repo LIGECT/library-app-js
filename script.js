@@ -15,6 +15,10 @@ Book.prototype.info = function () {
   return `${readStatus}`;
 };
 
+Book.prototype.toggleRead = function () {
+  this.read = !this.read;
+};
+
 function addBookLibrary(title, author, pages, read) {
   let newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
@@ -90,6 +94,30 @@ myLibrary.forEach((book) => {
   const pages = document.createElement("p");
   pages.textContent = `Pages: ${book.pages}`;
   myDiv.appendChild(pages);
+
+  const containerForStatus = document.createElement("div");
+  containerForStatus.classList.add("container-for-status");
+
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.name = "myCheckbox";
+  checkbox.value = "someValue";
+  checkbox.id = "bookID";
+  checkbox.classList.add("style-chekbox");
+  checkbox.checked = book.read;
+  containerForStatus.appendChild(checkbox);
+
+  const label = document.createElement("label");
+  label.htmlFor = "bookID";
+  label.textContent = "Read";
+  containerForStatus.appendChild(label);
+
+  checkbox.addEventListener("change", function () {
+    book.read = this.checked;
+    status.textContent = `status: ${book.info()}`;
+  });
+
+  myDiv.appendChild(containerForStatus);
 
   const status = document.createElement("p");
   status.textContent = `status: ${book.info()}`;

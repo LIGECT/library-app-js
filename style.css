@@ -116,7 +116,7 @@ input[type="number"]:focus {
   gap: 5px;
 }
 
-.form-field-checkbox input[type="checkbox"] {
+.style-chekbox {
   appearance: none;
   width: 18px;
   height: 18px;
@@ -128,12 +128,12 @@ input[type="number"]:focus {
   cursor: pointer;
 }
 
-.form-field-checkbox input[type="checkbox"]:checked {
+.style-chekbox:checked {
   background: var(--header);
   box-shadow: inset 0 0 0 2px #fff;
 }
 
-.form-field-checkbox input[type="checkbox"]:checked::after {
+.style-chekbox:checked::after {
   position: absolute;
   top: 2px;
   left: 5px;
@@ -210,4 +210,9 @@ button:active {
   padding: 5px;
   margin: 0;
   text-transform: capitalize;
+}
+
+.container-for-status {
+  display: flex;
+  align-items: center;
 }
