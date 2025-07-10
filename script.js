@@ -53,9 +53,29 @@ formSend.addEventListener("submit", function (e) {
   bookPages.textContent = `Pages: ${newBook.pages}`;
   myDiv.appendChild(bookPages);
 
-  const status = document.createElement("p");
-  status.textContent = `status: ${newBook.info()}`;
-  myDiv.appendChild(status);
+  const containerForStatus = document.createElement("div");
+  containerForStatus.classList.add("container-for-status");
+
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.name = "myCheckbox";
+  checkbox.value = "someValue";
+  checkbox.id = "bookID";
+  checkbox.classList.add("style-chekbox");
+  checkbox.checked = newBook.read;
+  containerForStatus.appendChild(checkbox);
+
+  const label = document.createElement("label");
+  label.htmlFor = "bookID";
+  label.textContent = "Read";
+  containerForStatus.appendChild(label);
+
+  checkbox.addEventListener("change", function () {
+    newBook.read = this.checked;
+    textContent = `status: ${newBook.info()}`;
+  });
+
+  myDiv.appendChild(containerForStatus);
 
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("delete-button");
@@ -114,14 +134,10 @@ myLibrary.forEach((book) => {
 
   checkbox.addEventListener("change", function () {
     book.read = this.checked;
-    status.textContent = `status: ${book.info()}`;
+    textContent = `status: ${book.info()}`;
   });
 
   myDiv.appendChild(containerForStatus);
-
-  const status = document.createElement("p");
-  status.textContent = `status: ${book.info()}`;
-  myDiv.appendChild(status);
 
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("delete-button");
