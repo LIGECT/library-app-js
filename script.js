@@ -1,5 +1,6 @@
 const myLibrary = [];
 const booksArea = document.getElementById("books-display-area");
+const formSend = document.getElementById("book-form");
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -18,6 +19,44 @@ function addBookLibrary(title, author, pages, read) {
   let newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
 }
+
+formSend.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const title = document.getElementById("title").value;
+  const author = document.getElementById("author").value;
+  const pages = parseInt(document.getElementById("pages").value);
+  const read = document.getElementById("read").checked;
+
+  addBookLibrary(title, author, pages, read);
+  const newBook = myLibrary[myLibrary.length - 1];
+
+  const myDiv = document.createElement("div");
+  myDiv.setAttribute("data-book-id", newBook.id);
+  booksArea.dataset.bookId;
+
+  myDiv.classList.add("book-card");
+
+  const bookTitle = document.createElement("h2");
+  bookTitle.textContent = newBook.title;
+  myDiv.appendChild(bookTitle);
+
+  const bookAuthor = document.createElement("p");
+  bookAuthor.textContent = newBook.author;
+  myDiv.appendChild(bookAuthor);
+
+  const bookPages = document.createElement("p");
+  bookPages.textContent = `Pages: ${newBook.pages}`;
+  myDiv.appendChild(bookPages);
+
+  const status = document.createElement("p");
+  status.textContent = `status: ${newBook.info()}`;
+  myDiv.appendChild(status);
+
+  booksArea.appendChild(myDiv);
+
+  formSend.reset();
+});
 
 addBookLibrary("The Art of Not Giving a Fuck", "Mark Manson", 224, true);
 addBookLibrary("JavaScript for Sadists", "Linus Devberg", 666, false);
