@@ -14,7 +14,7 @@
 
 :root {
   --background: #fff8e1;
-  --header: #a1887f;
+  --header: #644f4a;
   --button: #d7ccc8;
   --text: #4e342e;
 }
@@ -199,6 +199,14 @@ button:active {
 
 .book-card p {
   margin: 0;
+}
+
+.author-style {
+  color: var(--header);
+}
+
+h2 {
+  margin-bottom: 10px;
 }
 
 .delete-button {

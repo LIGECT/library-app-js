@@ -46,6 +46,7 @@ formSend.addEventListener("submit", function (e) {
   myDiv.appendChild(bookTitle);
 
   const bookAuthor = document.createElement("p");
+  bookAuthor.classList.add("author-style");
   bookAuthor.textContent = newBook.author;
   myDiv.appendChild(bookAuthor);
 
@@ -72,7 +73,6 @@ formSend.addEventListener("submit", function (e) {
 
   checkbox.addEventListener("change", function () {
     newBook.read = this.checked;
-    textContent = `status: ${newBook.info()}`;
   });
 
   myDiv.appendChild(containerForStatus);
@@ -108,6 +108,7 @@ myLibrary.forEach((book) => {
   myDiv.appendChild(title);
 
   const author = document.createElement("p");
+  author.classList.add("author-style");
   author.textContent = book.author;
   myDiv.appendChild(author);
 
@@ -134,7 +135,6 @@ myLibrary.forEach((book) => {
 
   checkbox.addEventListener("change", function () {
     book.read = this.checked;
-    textContent = `status: ${book.info()}`;
   });
 
   myDiv.appendChild(containerForStatus);
