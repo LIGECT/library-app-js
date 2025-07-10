@@ -53,6 +53,12 @@ formSend.addEventListener("submit", function (e) {
   status.textContent = `status: ${newBook.info()}`;
   myDiv.appendChild(status);
 
+  const deleteButton = document.createElement("button");
+  deleteButton.classList.add("delete-button");
+  deleteButton.textContent = "Delete";
+
+  myDiv.appendChild(deleteButton);
+
   booksArea.appendChild(myDiv);
 
   formSend.reset();
@@ -69,6 +75,7 @@ myLibrary.forEach((book) => {
   const bookID = book.id;
   myDiv.setAttribute("data-book-id", bookID);
   booksArea.dataset.bookId;
+  console.log(bookID);
 
   myDiv.classList.add("book-card");
 
@@ -88,5 +95,22 @@ myLibrary.forEach((book) => {
   status.textContent = `status: ${book.info()}`;
   myDiv.appendChild(status);
 
+  const deleteButton = document.createElement("button");
+  deleteButton.classList.add("delete-button");
+  deleteButton.textContent = "Delete";
+
+  myDiv.appendChild(deleteButton);
+
   booksArea.appendChild(myDiv);
+});
+
+booksArea.addEventListener("click", (event) => {
+  if (event.target.closest(".delete-button")) {
+    const bookCard = event.target.closest(".book-card");
+    if (bookCard) {
+      const deleteForBookID = bookCard.dataset.bookId;
+      console.log(`Нажата кнопка удаления для книги с ID: ${deleteForBookID}`);
+      bookCard.remove();
+    }
+  }
 });
