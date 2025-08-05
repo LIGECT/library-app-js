@@ -2,22 +2,22 @@ const myLibrary = [];
 const booksArea = document.getElementById("books-display-area");
 const formSend = document.getElementById("book-form");
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.id = crypto.randomUUID();
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.id = crypto.randomUUID();
+  }
+  info() {
+    const readStatus = this.read ? "read" : "not read";
+    return `${readStatus}`;
+  }
+  toggleRead() {
+    this.read = !this.read;
+  }
 }
-
-Book.prototype.info = function () {
-  const readStatus = this.read ? "read" : "not read";
-  return `${readStatus}`;
-};
-
-Book.prototype.toggleRead = function () {
-  this.read = !this.read;
-};
 
 function addBookLibrary(title, author, pages, read) {
   let newBook = new Book(title, author, pages, read);
